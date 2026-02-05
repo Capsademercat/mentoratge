@@ -299,6 +299,7 @@
         .inclou-card p {
             color: var(--text);
             line-height: 1.7;
+            margin-bottom: 15px;
         }
         
         .inclou-note {
@@ -323,6 +324,68 @@
         
         .mentor-note i {
             color: var(--primary);
+        }
+        
+        /* Secció d'Equip del Mentoratge (nova) */
+        .equip-mentoratge {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .equip-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .equip-member {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .equip-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: rgba(6, 118, 138, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .equip-member h4 {
+            font-size: 1.3rem;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .member-role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .member-desc {
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
         
         /* Secció de Preus */
@@ -699,6 +762,11 @@
                 grid-template-columns: 1fr;
                 max-width: 400px;
             }
+            
+            .equip-container {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -744,6 +812,10 @@
             .preu-import {
                 font-size: 3rem;
             }
+            
+            .equip-member {
+                padding: 25px 20px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -778,6 +850,13 @@
             
             .preu-import {
                 font-size: 2.5rem;
+            }
+            
+            .member-icon {
+                font-size: 2.5rem;
+                width: 70px;
+                height: 70px;
+                line-height: 70px;
             }
         }
     </style>
@@ -906,19 +985,23 @@
                     <p class="inclou-note">A més, podràs debatre, comentar i plantejar dubtes per escrit dins la comunitat.</p>
                 </div>
                 
-                <!-- Bloc 4 -->
+                <!-- Bloc 4 MODIFICAT - Espai per resoldre dubtes -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-comments"></i> Espai per resoldre dubtes</h3>
-                    <p>Tindràs un espai on podràs:</p>
+                    <p>Tindràs un espai privat on podràs:</p>
                     <ul>
                         <li>Fer preguntes per text</li>
                         <li>Compartir reflexions</li>
                         <li>Debatre amb la comunitat</li>
-                        <li>Rebre resposta i orientació</li>
+                    </ul>
+                    <p>Les preguntes seran respostes per l'equip del mentoratge:</p>
+                    <ul>
+                        <li><strong>En Robert</strong>, que forma part de l'equip i gestiona el seguiment diari</li>
+                        <li><strong>En David Forcada</strong>, especialment en dubtes més estratègics o que requereixin la seva intervenció directa</li>
                     </ul>
                     <div class="mentor-note">
                         <i class="fas fa-user-tie"></i>
-                        <span>Respostes de David Forcada i la comunitat</span>
+                        <span>Respostes àgils i seguiment continu de l'equip</span>
                     </div>
                 </div>
                 
@@ -930,6 +1013,36 @@
                     <p class="inclou-note">* Sessions opcionals amb cost addicional - Atenció directa amb David Forcada</p>
                 </div>
             </div>
+            
+            <!-- Nova secció: Equip del Mentoratge -->
+            <div class="equip-mentoratge">
+                <h3 class="section-title" style="font-size: 2rem; margin-top: 60px;">Conèix l'equip del mentoratge</h3>
+                <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 40px;">Un equip dedicat per garantir el teu seguiment i aprenentatge</p>
+                
+                <div class="equip-container">
+                    <div class="equip-member">
+                        <div class="member-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>David Forcada</h4>
+                        <div class="member-role">Mentor Principal i Estrateg</div>
+                        <p class="member-desc">
+                            Impulsa tot el contingut del mentoratge, dirigeix els directes setmanals i s'encarrega dels dubtes més estratègics i complexos. Les sessions 1:1 opcionals són amb ell.
+                        </p>
+                    </div>
+                    
+                    <div class="equip-member">
+                        <div class="member-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Robert</h4>
+                        <div class="member-role">Responsable de Seguiment Diari</div>
+                        <p class="member-desc">
+                            Gestiona el seguiment diari de l'espai de dubtes, respon ràpidament a les preguntes i assegura la continuïtat en el teu aprenentatge. És el teu punt de contacte diari.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -937,7 +1050,7 @@
     <section id="preus" class="preus-section">
         <div class="container">
             <h2 class="section-title">Tria la teva opció d'accés</h2>
-            <p class="section-subtitle">Accedeix a tot el contingut, formació i acompanyament amb David Forcada</p>
+            <p class="section-subtitle">Accedeix a tot el contingut, formació i acompanyament amb l'equip del mentoratge</p>
             
             <div class="preus-grid">
                 <!-- Plan Mensual -->
@@ -950,7 +1063,7 @@
                         <li>Accés complet a la formació</li>
                         <li>Directes setmanals amb David Forcada</li>
                         <li>Resums setmanals dels mercats</li>
-                        <li>Espai de dubtes i comunitat</li>
+                        <li>Espai de dubtes amb l'equip (Robert + David)</li>
                         <li>Cancel·lació en qualsevol moment</li>
                     </ul>
                     
@@ -995,7 +1108,7 @@
                         <li>Vols començar a invertir amb criteri i acompanyament</li>
                         <li>Ja inverteixes però tens dubtes i necessites guia</li>
                         <li>Vols entendre el mercat amb profunditat amb David Forcada</li>
-                        <li>Busques estructura i seguiment continu</li>
+                        <li>Busques estructura i seguiment continu de l'equip</li>
                         <li>Valores l'aprenentatge amb experiència real</li>
                     </ul>
                 </div>
@@ -1048,17 +1161,17 @@
                     </div>
                 </div>
                 
-                <!-- Pas 4 -->
+                <!-- Pas 4 MODIFICAT -->
                 <div class="funciona-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h4>Planteges dubtes quan els tinguis</h4>
-                        <p>A l'espai privat de la comunitat, tens suport continu de David i la resta de membres.</p>
+                        <p>A l'espai privat de la comunitat, tens suport continu de l'equip del mentoratge (Robert per al seguiment diari i David per als dubtes estratègics).</p>
                     </div>
                 </div>
                 
                 <div class="funciona-conclusion">
-                    Tot en un mateix espai privat. Sense dispersió. Amb continuïtat i acompanyament directe de David Forcada.
+                    Tot en un mateix espai privat. Sense dispersió. Amb continuïtat i acompanyament de l'equip del mentoratge.
                 </div>
             </div>
         </div>
@@ -1088,7 +1201,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Tota la formació, directes i contingut està creat i imparteix directament per <strong>David Forcada</strong>. Les sessions 1:1 opcionals també són amb David directament. És el seu coneixement i experiència el que rebràs.</p>
+                        <p>La formació i directes estan creats i impartits directament per <strong>David Forcada</strong>. L'espai de dubtes està gestionat per l'equip del mentoratge: <strong>Robert</strong> per al seguiment diari i <strong>David Forcada</strong> per als dubtes més estratègics. Les sessions 1:1 opcionals també són amb David directament.</p>
                     </div>
                 </div>
                 
@@ -1121,11 +1234,22 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Tots els directes amb David Forcada queden gravats i disponibles a l'espai privat del mentoratge, de manera que els pots veure en qualsevol moment. A més, pots plantejar els teus dubtes per escrit a la comunitat i David o la comunitat et respondran allà mateix.</p>
+                        <p>Tots els directes amb David Forcada queden gravats i disponibles a l'espai privat del mentoratge, de manera que els pots veure en qualsevol moment. A més, pots plantejar els teus dubtes per escrit a la comunitat i l'equip del mentoratge et respondrà allà mateix.</p>
                     </div>
                 </div>
                 
                 <!-- Pregunta 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Qui respon als dubtes a l'espai de la comunitat?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>L'espai de dubtes està gestionat per l'equip del mentoratge: <strong>Robert</strong> s'encarrega del seguiment diari i respon ràpidament a les preguntes, mentre que <strong>David Forcada</strong> intervé en dubtes més estratègics o que requereixin la seva atenció directa. Aquesta estructura garanteix respostes àgils i un seguiment continu.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 7 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         Quina diferència hi ha entre el mensual i l'anual?
@@ -1142,7 +1266,7 @@
     <!-- Secció CTA Final -->
     <section class="cta-final">
         <div class="container">
-            <h2 class="section-title">Si vols deixar d'improvisar i començar a invertir amb criteri amb l'acompanyament de David Forcada, aquest és el teu espai.</h2>
+            <h2 class="section-title">Si vols deixar d'improvisar i començar a invertir amb criteri amb l'acompanyament de l'equip del mentoratge, aquest és el teu espai.</h2>
             <a href="#preus" class="btn">ACCEDIR AL MENTORATGE</a>
         </div>
     </section>
@@ -1153,7 +1277,7 @@
             <img src="https://www.davidforcada.cat/wp-content/uploads/2024/03/DAVID_FORCADA__6_-removebg-preview-300x88.png" alt="David Forcada" class="footer-logo">
             <p class="footer-text">
                 Mentoratge d'Inversió amb David Forcada<br>
-                Un espai privat per aprendre a invertir amb criteri, estructura i acompanyament continu.
+                Un espai privat per aprendre a invertir amb criteri, estructura i acompanyament de l'equip.
             </p>
             <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">
                 © 2024 David Forcada. Tots els drets reservats.
