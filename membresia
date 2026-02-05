@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoratge - Aprèn a invertir amb criteri | David Forcada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset i estils generals */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #06768a;
+            --primary-dark: #045266;
+            --secondary: #00d4ff;
+            --accent: #ff6b35;
+            --light-bg: #f8fafc;
+            --dark-text: #1a202c;
+            --text: #4a5568;
+            --light-text: #718096;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(6, 118, 138, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(6, 118, 138, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #034654 100%);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, #e55a2b 100%);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-accent:hover {
+            background: linear-gradient(135deg, #e55a2b 0%, #cc4a20 100%);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Secció Hero */
+        .hero {
+            background: linear-gradient(135deg, #06768a 0%, #045266 100%);
+            color: var(--white);
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Secció Problema */
+        .problema {
+            background-color: var(--light-bg);
+        }
+        
+        .problema-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .problema-image {
+            text-align: center;
+        }
+        
+        .problema-icon {
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.7;
+        }
+        
+        .problema-list {
+            list-style: none;
+        }
+        
+        .problema-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .problema-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .problema-item p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .problema-conclusion {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 40px;
+            line-height: 1.6;
+            text-align: center;
+            background: rgba(6, 118, 138, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+        }
+        
+        /* Secció Què és */
+        .que-es {
+            text-align: center;
+        }
+        
+        .que-es-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .que-es-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .que-es-highlight {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: rgba(6, 118, 138, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 5px solid var(--accent);
+        }
+        
+        /* Secció Què inclou */
+        .que-inclou {
+            background-color: var(--light-bg);
+        }
+        
+        .inclou-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .inclou-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            height: 100%;
+        }
+        
+        .inclou-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .inclou-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .inclou-card h3 i {
+            color: var(--accent);
+        }
+        
+        .inclou-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .inclou-card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .inclou-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .inclou-card p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        .inclou-note {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            font-style: italic;
+            margin-top: 15px;
+        }
+        
+        /* Secció Per a qui */
+        .per-a-qui {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .per-a-qui-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .per-a-qui-box.es {
+            border-top: 6px solid var(--primary);
+        }
+        
+        .per-a-qui-box.no-es {
+            border-top: 6px solid #e74c3c;
+        }
+        
+        .per-a-qui-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .per-a-qui-box.es h3 i {
+            color: var(--primary);
+        }
+        
+        .per-a-qui-box.no-es h3 i {
+            color: #e74c3c;
+        }
+        
+        .per-a-qui-box ul {
+            list-style: none;
+        }
+        
+        .per-a-qui-box li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .per-a-qui-box.es li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .per-a-qui-box.no-es li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Secció Com funciona */
+        .com-funciona {
+            background-color: var(--light-bg);
+        }
+        
+        .funciona-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .funciona-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .step-content h4 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .funciona-conclusion {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 40px;
+            background: rgba(6, 118, 138, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+        }
+        
+        /* Secció FAQ */
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            background: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: #f7fafc;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f7fafc;
+        }
+        
+        .faq-answer.active {
+            padding: 25px 30px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            line-height: 1.7;
+        }
+        
+        .faq-toggle {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* Secció CTA Final */
+        .cta-final {
+            text-align: center;
+            background: linear-gradient(135deg, #06768a 0%, #045266 100%);
+            color: var(--white);
+            padding: 100px 0;
+        }
+        
+        .cta-final .section-title {
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        
+        .cta-final .btn {
+            background: var(--white);
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            padding: 20px 50px;
+        }
+        
+        .cta-final .btn:hover {
+            background: #f0f9ff;
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .problema-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .per-a-qui {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .inclou-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .inclou-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .funciona-step {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .problema-item p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .btn {
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+            
+            .per-a-qui-box {
+                padding: 25px;
+            }
+            
+            .inclou-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Secció Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">MENTORATGE</h1>
+                <h2 class="hero-subtitle">Aprèn a invertir amb criteri i resol els teus dubtes amb seguiment real</h2>
+                <p class="hero-description">Formació estructurada, directes setmanals i accés a sessions privades si vols anar un pas més enllà.</p>
+                <a href="#" class="btn btn-accent">ACCEDIR AL MENTORATGE</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció Problema -->
+    <section class="problema">
+        <div class="container">
+            <h2 class="section-title">Et sents així?</h2>
+            
+            <div class="problema-grid">
+                <div class="problema-image">
+                    <i class="fas fa-question-circle problema-icon"></i>
+                </div>
+                <div class="problema-content">
+                    <ul class="problema-list">
+                        <li class="problema-item">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Inverteixes però tens dubtes constants</p>
+                        </li>
+                        <li class="problema-item">
+                            <i class="fas fa-question"></i>
+                            <p>No saps si el que estàs fent té sentit</p>
+                        </li>
+                        <li class="problema-item">
+                            <i class="fas fa-brain"></i>
+                            <p>Consumeixes informació dispersa</p>
+                        </li>
+                        <li class="problema-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <p>Et falta criteri i estructura</p>
+                        </li>
+                        <li class="problema-item">
+                            <i class="fas fa-users"></i>
+                            <p>No tens amb qui contrastar decisions</p>
+                        </li>
+                    </ul>
+                    
+                    <div class="problema-conclusion">
+                        La majoria d'inversors no fallen per falta d'informació. Fallen per falta d'estructura i acompanyament.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció Què és -->
+    <section class="que-es">
+        <div class="container">
+            <h2 class="section-title">Què és exactament el Mentoratge?</h2>
+            
+            <div class="que-es-content">
+                <p class="que-es-text">
+                    El Mentoratge és un espai privat on trobaràs formació estructurada sobre inversió, anàlisi i estratègia, juntament amb seguiment continu i resolució de dubtes.
+                </p>
+                
+                <div class="que-es-highlight">
+                    No és un curs solt.<br>És un entorn d'aprenentatge amb continuïtat.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció Què inclou -->
+    <section class="que-inclou">
+        <div class="container">
+            <h2 class="section-title">Què inclou el Mentoratge</h2>
+            
+            <div class="inclou-grid">
+                <!-- Bloc 1 -->
+                <div class="inclou-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Formació</h3>
+                    <p>Més de 3 hores de formació estructurada que cobreixen:</p>
+                    <ul>
+                        <li>Conceptes bàsics del mercat</li>
+                        <li>Tipus d'accions</li>
+                        <li>ETFs i fons</li>
+                        <li>Estratègies d'inversió</li>
+                        <li>Anàlisi tècnica i fonamental</li>
+                        <li>Lectura d'informes empresarials</li>
+                    </ul>
+                </div>
+                
+                <!-- Bloc 2 -->
+                <div class="inclou-card">
+                    <h3><i class="fas fa-video"></i> Directes setmanals</h3>
+                    <p>Cada setmana farem un directe on:</p>
+                    <ul>
+                        <li>Analitzarem què ha passat als mercats</li>
+                        <li>Comentarem moviments rellevants</li>
+                        <li>Resoldré dubtes en directe</li>
+                        <li>Parlarem de context i oportunitats</li>
+                    </ul>
+                </div>
+                
+                <!-- Bloc 3 -->
+                <div class="inclou-card">
+                    <h3><i class="fas fa-chart-line"></i> Resum setmanal dels mercats</h3>
+                    <p>Cada setmana rebràs un resum complet on explicarem:</p>
+                    <ul>
+                        <li>Què ha passat als principals mercats</li>
+                        <li>Moviments destacats</li>
+                        <li>Context econòmic rellevant</li>
+                        <li>Reflexions clau</li>
+                    </ul>
+                    <p class="inclou-note">A més, podràs debatre, comentar i plantejar dubtes per escrit dins la comunitat.</p>
+                </div>
+                
+                <!-- Bloc 4 -->
+                <div class="inclou-card">
+                    <h3><i class="fas fa-comments"></i> Espai per resoldre dubtes</h3>
+                    <p>Tindràs un espai on podràs:</p>
+                    <ul>
+                        <li>Fer preguntes per text</li>
+                        <li>Compartir reflexions</li>
+                        <li>Debatre amb la comunitat</li>
+                        <li>Rebre resposta i orientació</li>
+                    </ul>
+                </div>
+                
+                <!-- Bloc 5 -->
+                <div class="inclou-card">
+                    <h3><i class="fas fa-user-check"></i> Sessions 1:1 (opcional)</h3>
+                    <p>Si necessites un acompanyament més personalitzat, podràs reservar una sessió privada amb mi per 150€.</p>
+                    <p>Aquestes sessions són opcionals i estan pensades per tractar dubtes específics o revisar situacions concretes.</p>
+                    <p class="inclou-note">* Sessions opcionals amb cost addicional</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció Per a qui és -->
+    <section class="per-a-qui-section">
+        <div class="container">
+            <div class="per-a-qui">
+                <!-- Per a qui ÉS -->
+                <div class="per-a-qui-box es">
+                    <h3><i class="fas fa-check-circle"></i> Aquest mentoratge és per tu si:</h3>
+                    <ul>
+                        <li>Vols començar a invertir amb criteri</li>
+                        <li>Ja inverteixes però tens dubtes</li>
+                        <li>Vols entendre el mercat amb profunditat</li>
+                        <li>Busques estructura i seguiment</li>
+                    </ul>
+                </div>
+                
+                <!-- Per a qui NO ÉS -->
+                <div class="per-a-qui-box no-es">
+                    <h3><i class="fas fa-times-circle"></i> No és per tu si:</h3>
+                    <ul>
+                        <li>Busques fórmules ràpides</li>
+                        <li>Esperes promeses irreals</li>
+                        <li>No vols dedicar temps a aprendre</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció Com funciona -->
+    <section class="com-funciona">
+        <div class="container">
+            <h2 class="section-title">Com funciona</h2>
+            
+            <div class="funciona-steps">
+                <!-- Pas 1 -->
+                <div class="funciona-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>T'inscrius al Mentoratge</h4>
+                        <p>Accedeixes immediatament a la formació i a tots els recursos.</p>
+                    </div>
+                </div>
+                
+                <!-- Pas 2 -->
+                <div class="funciona-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Cada setmana reps el resum de mercats</h4>
+                        <p>Analitzem el que ha passat i quines oportunitats s'obreixen.</p>
+                    </div>
+                </div>
+                
+                <!-- Pas 3 -->
+                <div class="funciona-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Participes als directes</h4>
+                        <p>Resolem dubtes en temps real i analitzem el mercat juntament.</p>
+                    </div>
+                </div>
+                
+                <!-- Pas 4 -->
+                <div class="funciona-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Planteges dubtes quan els tinguis</h4>
+                        <p>A l'espai privat de la comunitat, tens suport continu.</p>
+                    </div>
+                </div>
+                
+                <div class="funciona-conclusion">
+                    Tot en un mateix espai privat. Sense dispersió. Amb continuïtat.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntes Freqüents</h2>
+            
+            <div class="faq">
+                <!-- Pregunta 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        És per principiants?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, el mentoratge està dissenyat per a tots els nivells. La formació estructurada parteix de conceptes bàsics i va progressant en complexitat, de manera que tant si comences des de zero com si ja tens experiència, trobaràs contingut adaptat al teu nivell.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Necessito experiència prèvia?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No és necessària experiència prèvia. La formació està dissenyada per guiar-te des dels fonaments fins a conceptes més avançats. El que sí que necessites és voluntat d'aprendre i dedicar temps a comprendre els mercats.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Puc cancel·lar quan vulgui?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, el mentoratge és un servei de subscripció mensual que pots cancel·lar en qualsevol moment sense cap penalització. Tan sols cal que ho notifiquis abans de la propera renovació.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Les sessions 1:1 estan incloses?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Les sessions 1:1 són opcionals i tenen un cost addicional de 150€ per sessió. No estan incloses en la subscripció mensual del mentoratge, però estan disponibles per a qui necessiti un acompanyament més personalitzat per a dubtes específics o per revisar la seva situació particular.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Què passa si no puc assistir als directes?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tots els directes queden gravats i disponibles a l'espai privat del mentoratge, de manera que els pots veure en qualsevol moment. A més, pots plantejar els teus dubtes per escrit a la comunitat i els respondré allà mateix.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció CTA Final -->
+    <section class="cta-final">
+        <div class="container">
+            <h2 class="section-title">Si vols deixar d'improvisar i començar a invertir amb criteri, aquest és el teu espai.</h2>
+            <a href="#" class="btn">ACCEDIR AL MENTORATGE</a>
+        </div>
+    </section>
+
+    <script>
+        // Funcionalitat per a les preguntes freqüents
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', () => {
+                    // Tancar totes les altres respostes
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('active');
+                        }
+                    });
+                    
+                    // Obtenir o tancar la resposta actual
+                    item.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
