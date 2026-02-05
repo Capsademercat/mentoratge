@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentoratge - Aprèn a invertir amb criteri | David Forcada</title>
+    <title>Mentoratge d'Inversió - Aprèn a invertir amb criteri | David Forcada</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
             --primary-dark: #045266;
             --secondary: #00d4ff;
             --accent: #ff6b35;
+            --success: #27ae60;
             --light-bg: #f8fafc;
             --dark-text: #1a202c;
             --text: #4a5568;
@@ -307,6 +308,136 @@
             margin-top: 15px;
         }
         
+        .mentor-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 118, 138, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .mentor-note i {
+            color: var(--primary);
+        }
+        
+        /* Secció de Preus */
+        .preus-section {
+            text-align: center;
+        }
+        
+        .preus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .preu-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .preu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .preu-card.popular {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(6, 118, 138, 0.15);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--success) 0%, #219653 100%);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .preu-titol {
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .preu-import {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 20px 0;
+            line-height: 1;
+        }
+        
+        .preu-import span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+        
+        .estalvi-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success) 0%, #219653 100%);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .preu-descripcio {
+            color: var(--text);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .preu-details {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .preu-details li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .preu-details li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .preu-nota {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
         /* Secció Per a qui */
         .per-a-qui {
             display: grid;
@@ -519,6 +650,27 @@
             transform: translateY(-3px);
         }
         
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-text {
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
@@ -541,6 +693,11 @@
             
             .inclou-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .preus-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
             }
         }
         
@@ -583,6 +740,10 @@
             .problema-item p {
                 font-size: 1rem;
             }
+            
+            .preu-import {
+                font-size: 3rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -610,6 +771,14 @@
             .inclou-card {
                 padding: 25px 20px;
             }
+            
+            .preu-card {
+                padding: 30px 20px;
+            }
+            
+            .preu-import {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -618,10 +787,10 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">MENTORATGE</h1>
+                <h1 class="hero-title">MENTORATGE D'INVERSIÓ</h1>
                 <h2 class="hero-subtitle">Aprèn a invertir amb criteri i resol els teus dubtes amb seguiment real</h2>
-                <p class="hero-description">Formació estructurada, directes setmanals i accés a sessions privades si vols anar un pas més enllà.</p>
-                <a href="#" class="btn btn-accent">ACCEDIR AL MENTORATGE</a>
+                <p class="hero-description">Formació estructurada, directes setmanals amb David Forcada i accés a sessions privades si vols anar un pas més enllà.</p>
+                <a href="#preus" class="btn btn-accent">VEURE OPCIONS I PREUS</a>
             </div>
         </div>
     </section>
@@ -674,11 +843,11 @@
             
             <div class="que-es-content">
                 <p class="que-es-text">
-                    El Mentoratge és un espai privat on trobaràs formació estructurada sobre inversió, anàlisi i estratègia, juntament amb seguiment continu i resolució de dubtes.
+                    El Mentoratge és un espai privat on trobaràs formació estructurada sobre inversió, anàlisi i estratègia amb <strong>David Forcada</strong>, juntament amb seguiment continu i resolució de dubtes en directe.
                 </p>
                 
                 <div class="que-es-highlight">
-                    No és un curs solt.<br>És un entorn d'aprenentatge amb continuïtat.
+                    No és un curs solt.<br>És un entorn d'aprenentatge amb continuïtat i acompanyament directe.
                 </div>
             </div>
         </div>
@@ -692,7 +861,7 @@
             <div class="inclou-grid">
                 <!-- Bloc 1 -->
                 <div class="inclou-card">
-                    <h3><i class="fas fa-graduation-cap"></i> Formació</h3>
+                    <h3><i class="fas fa-graduation-cap"></i> Formació amb David</h3>
                     <p>Més de 3 hores de formació estructurada que cobreixen:</p>
                     <ul>
                         <li>Conceptes bàsics del mercat</li>
@@ -702,24 +871,32 @@
                         <li>Anàlisi tècnica i fonamental</li>
                         <li>Lectura d'informes empresarials</li>
                     </ul>
+                    <div class="mentor-note">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Formació creada i impartida per David Forcada</span>
+                    </div>
                 </div>
                 
                 <!-- Bloc 2 -->
                 <div class="inclou-card">
-                    <h3><i class="fas fa-video"></i> Directes setmanals</h3>
-                    <p>Cada setmana farem un directe on:</p>
+                    <h3><i class="fas fa-video"></i> Directes setmanals amb David</h3>
+                    <p>Cada setmana farem un directe amb David Forcada on:</p>
                     <ul>
                         <li>Analitzarem què ha passat als mercats</li>
                         <li>Comentarem moviments rellevants</li>
                         <li>Resoldré dubtes en directe</li>
                         <li>Parlarem de context i oportunitats</li>
                     </ul>
+                    <div class="mentor-note">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Directes en viu amb David Forcada</span>
+                    </div>
                 </div>
                 
                 <!-- Bloc 3 -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-chart-line"></i> Resum setmanal dels mercats</h3>
-                    <p>Cada setmana rebràs un resum complet on explicarem:</p>
+                    <p>Cada setmana rebràs un resum complet preparat per David on explicarem:</p>
                     <ul>
                         <li>Què ha passat als principals mercats</li>
                         <li>Moviments destacats</li>
@@ -739,15 +916,70 @@
                         <li>Debatre amb la comunitat</li>
                         <li>Rebre resposta i orientació</li>
                     </ul>
+                    <div class="mentor-note">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Respostes de David Forcada i la comunitat</span>
+                    </div>
                 </div>
                 
                 <!-- Bloc 5 -->
                 <div class="inclou-card">
-                    <h3><i class="fas fa-user-check"></i> Sessions 1:1 (opcional)</h3>
-                    <p>Si necessites un acompanyament més personalitzat, podràs reservar una sessió privada amb mi per 150€.</p>
-                    <p>Aquestes sessions són opcionals i estan pensades per tractar dubtes específics o revisar situacions concretes.</p>
-                    <p class="inclou-note">* Sessions opcionals amb cost addicional</p>
+                    <h3><i class="fas fa-user-check"></i> Sessions 1:1 amb David (opcional)</h3>
+                    <p>Si necessites un acompanyament més personalitzat, podràs reservar una sessió privada amb <strong>David Forcada</strong> per 150€.</p>
+                    <p>Aquestes sessions són opcionals i estan pensades per tractar dubtes específics o revisar situacions concretes amb atenció personalitzada.</p>
+                    <p class="inclou-note">* Sessions opcionals amb cost addicional - Atenció directa amb David Forcada</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció de Preus -->
+    <section id="preus" class="preus-section">
+        <div class="container">
+            <h2 class="section-title">Tria la teva opció d'accés</h2>
+            <p class="section-subtitle">Accedeix a tot el contingut, formació i acompanyament amb David Forcada</p>
+            
+            <div class="preus-grid">
+                <!-- Plan Mensual -->
+                <div class="preu-card">
+                    <h3 class="preu-titol">Accés Mensual</h3>
+                    <div class="preu-import">60€ <span>/mes</span></div>
+                    <p class="preu-descripcio">Perfecte per començar i provar el mentoratge</p>
+                    
+                    <ul class="preu-details">
+                        <li>Accés complet a la formació</li>
+                        <li>Directes setmanals amb David Forcada</li>
+                        <li>Resums setmanals dels mercats</li>
+                        <li>Espai de dubtes i comunitat</li>
+                        <li>Cancel·lació en qualsevol moment</li>
+                    </ul>
+                    
+                    <a href="#" class="btn">COMENÇAR ARA</a>
+                </div>
+                
+                <!-- Plan Anual -->
+                <div class="preu-card popular">
+                    <div class="popular-badge">MÉS ESTALVI</div>
+                    <h3 class="preu-titol">Accés Anual</h3>
+                    <div class="estalvi-badge">Estalvia 225€</div>
+                    <div class="preu-import">495€ <span>/any</span></div>
+                    <p class="preu-descripcio">L'opció més recomanada - Equivalent a 41,25€/mes</p>
+                    
+                    <ul class="preu-details">
+                        <li>Tot l'accés mensual</li>
+                        <li><strong>2 mesos GRATIS</strong> respecte al mensual</li>
+                        <li>Prioritat en respostes als dubtes</li>
+                        <li>Accés anticipat a nous continguts</li>
+                        <li>Estabilitat i compromís amb el teu aprenentatge</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-accent">ACCEDIR AL MENTORATGE</a>
+                    <p class="preu-nota">Pagament únic anual - Sense renovació automàtica</p>
+                </div>
+            </div>
+            
+            <div class="preu-nota" style="max-width: 600px; margin: 0 auto;">
+                * Les sessions 1:1 amb David Forcada tenen un cost addicional de 150€ per sessió i estan disponibles per a tots els membres del mentoratge.
             </div>
         </div>
     </section>
@@ -760,10 +992,11 @@
                 <div class="per-a-qui-box es">
                     <h3><i class="fas fa-check-circle"></i> Aquest mentoratge és per tu si:</h3>
                     <ul>
-                        <li>Vols començar a invertir amb criteri</li>
-                        <li>Ja inverteixes però tens dubtes</li>
-                        <li>Vols entendre el mercat amb profunditat</li>
-                        <li>Busques estructura i seguiment</li>
+                        <li>Vols començar a invertir amb criteri i acompanyament</li>
+                        <li>Ja inverteixes però tens dubtes i necessites guia</li>
+                        <li>Vols entendre el mercat amb profunditat amb David Forcada</li>
+                        <li>Busques estructura i seguiment continu</li>
+                        <li>Valores l'aprenentatge amb experiència real</li>
                     </ul>
                 </div>
                 
@@ -771,9 +1004,11 @@
                 <div class="per-a-qui-box no-es">
                     <h3><i class="fas fa-times-circle"></i> No és per tu si:</h3>
                     <ul>
-                        <li>Busques fórmules ràpides</li>
-                        <li>Esperes promeses irreals</li>
-                        <li>No vols dedicar temps a aprendre</li>
+                        <li>Busques fórmules ràpides o "get rich quick"</li>
+                        <li>Esperes promeses irreals de rendibilitat</li>
+                        <li>No vols dedicar temps a aprendre i comprendre</li>
+                        <li>Penses que la inversió és una loteria</li>
+                        <li>No creus en l'aprenentatge continu</li>
                     </ul>
                 </div>
             </div>
@@ -791,7 +1026,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h4>T'inscrius al Mentoratge</h4>
-                        <p>Accedeixes immediatament a la formació i a tots els recursos.</p>
+                        <p>Accedeixes immediatament a la formació i a tots els recursos. Rebràs benvinguda personal de David Forcada.</p>
                     </div>
                 </div>
                 
@@ -800,7 +1035,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h4>Cada setmana reps el resum de mercats</h4>
-                        <p>Analitzem el que ha passat i quines oportunitats s'obreixen.</p>
+                        <p>Analitzem el que ha passat i quines oportunitats s'obreixen, amb l'anàlisi de David Forcada.</p>
                     </div>
                 </div>
                 
@@ -808,8 +1043,8 @@
                 <div class="funciona-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h4>Participes als directes</h4>
-                        <p>Resolem dubtes en temps real i analitzem el mercat juntament.</p>
+                        <h4>Participes als directes amb David</h4>
+                        <p>Resolem dubtes en temps real i analitzem el mercat juntament amb David Forcada en directe.</p>
                     </div>
                 </div>
                 
@@ -818,12 +1053,12 @@
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h4>Planteges dubtes quan els tinguis</h4>
-                        <p>A l'espai privat de la comunitat, tens suport continu.</p>
+                        <p>A l'espai privat de la comunitat, tens suport continu de David i la resta de membres.</p>
                     </div>
                 </div>
                 
                 <div class="funciona-conclusion">
-                    Tot en un mateix espai privat. Sense dispersió. Amb continuïtat.
+                    Tot en un mateix espai privat. Sense dispersió. Amb continuïtat i acompanyament directe de David Forcada.
                 </div>
             </div>
         </div>
@@ -842,18 +1077,18 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, el mentoratge està dissenyat per a tots els nivells. La formació estructurada parteix de conceptes bàsics i va progressant en complexitat, de manera que tant si comences des de zero com si ja tens experiència, trobaràs contingut adaptat al teu nivell.</p>
+                        <p>Sí, el mentoratge està dissenyat per a tots els nivells. La formació estructurada de David Forcada parteix de conceptes bàsics i va progressant en complexitat, de manera que tant si comences des de zero com si ja tens experiència, trobaràs contingut adaptat al teu nivell.</p>
                     </div>
                 </div>
                 
                 <!-- Pregunta 2 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        Necessito experiència prèvia?
+                        Qui imparteix el mentoratge?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>No és necessària experiència prèvia. La formació està dissenyada per guiar-te des dels fonaments fins a conceptes més avançats. El que sí que necessites és voluntat d'aprendre i dedicar temps a comprendre els mercats.</p>
+                        <p>Tota la formació, directes i contingut està creat i imparteix directament per <strong>David Forcada</strong>. Les sessions 1:1 opcionals també són amb David directament. És el seu coneixement i experiència el que rebràs.</p>
                     </div>
                 </div>
                 
@@ -864,7 +1099,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, el mentoratge és un servei de subscripció mensual que pots cancel·lar en qualsevol moment sense cap penalització. Tan sols cal que ho notifiquis abans de la propera renovació.</p>
+                        <p>Sí, la subscripció mensual es pot cancel·lar en qualsevol moment sense cap penalització. El pla anual és un pagament únic que et dóna accés per 12 mesos sense renovació automàtica.</p>
                     </div>
                 </div>
                 
@@ -875,18 +1110,29 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Les sessions 1:1 són opcionals i tenen un cost addicional de 150€ per sessió. No estan incloses en la subscripció mensual del mentoratge, però estan disponibles per a qui necessiti un acompanyament més personalitzat per a dubtes específics o per revisar la seva situació particular.</p>
+                        <p>Les sessions 1:1 amb <strong>David Forcada</strong> són opcionals i tenen un cost addicional de 150€ per sessió. No estan incloses en la subscripció, però estan disponibles per a qui necessiti un acompanyament més personalitzat amb David per a dubtes específics o per revisar la seva situació particular.</p>
                     </div>
                 </div>
                 
                 <!-- Pregunta 5 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        Què passa si no puc assistir als directes?
+                        Què passa si no puc assistir als directes amb David?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Tots els directes queden gravats i disponibles a l'espai privat del mentoratge, de manera que els pots veure en qualsevol moment. A més, pots plantejar els teus dubtes per escrit a la comunitat i els respondrem, allà mateix.</p>
+                        <p>Tots els directes amb David Forcada queden gravats i disponibles a l'espai privat del mentoratge, de manera que els pots veure en qualsevol moment. A més, pots plantejar els teus dubtes per escrit a la comunitat i David o la comunitat et respondran allà mateix.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quina diferència hi ha entre el mensual i l'anual?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El contingut és idèntic als dos plans. La diferència és el preu i alguns beneficis addicionals: amb el pla anual estalvies 225€ (gairebé 2 mesos gratis), tens prioritat en les respostes i accés anticipat a nous continguts. És l'opció recomanada si et compromets amb el teu aprenentatge.</p>
                     </div>
                 </div>
             </div>
@@ -896,10 +1142,24 @@
     <!-- Secció CTA Final -->
     <section class="cta-final">
         <div class="container">
-            <h2 class="section-title">Si vols deixar d'improvisar i començar a invertir amb criteri, aquest és el teu espai.</h2>
-            <a href="#" class="btn">ACCEDIR AL MENTORATGE</a>
+            <h2 class="section-title">Si vols deixar d'improvisar i començar a invertir amb criteri amb l'acompanyament de David Forcada, aquest és el teu espai.</h2>
+            <a href="#preus" class="btn">ACCEDIR AL MENTORATGE</a>
         </div>
     </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="https://www.davidforcada.cat/wp-content/uploads/2024/03/DAVID_FORCADA__6_-removebg-preview-300x88.png" alt="David Forcada" class="footer-logo">
+            <p class="footer-text">
+                Mentoratge d'Inversió amb David Forcada<br>
+                Un espai privat per aprendre a invertir amb criteri, estructura i acompanyament continu.
+            </p>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">
+                © 2024 David Forcada. Tots els drets reservats.
+            </p>
+        </div>
+    </footer>
 
     <script>
         // Funcionalitat per a les preguntes freqüents
@@ -923,6 +1183,23 @@
                     // Obtenir o tancar la resposta actual
                     item.classList.toggle('active');
                     answer.classList.toggle('active');
+                });
+            });
+            
+            // Suau scroll per als enllaços internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
