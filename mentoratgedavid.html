@@ -199,6 +199,18 @@
             border-left: 5px solid var(--accent);
         }
         
+        /* CTA d'accés inicial */
+        .cta-inicial {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .cta-inicial .btn {
+            font-size: 1.2rem;
+            padding: 20px 50px;
+        }
+        
         /* Secció Què és */
         .que-es {
             text-align: center;
@@ -226,7 +238,7 @@
             border-left: 5px solid var(--accent);
         }
         
-        /* Secció Què inclou - MODIFICADA */
+        /* Secció Què inclou - MODIFICADA i equilibrat */
         .que-inclou {
             background-color: var(--light-bg);
         }
@@ -331,6 +343,61 @@
             color: var(--primary-dark);
             margin-bottom: 10px;
             font-size: 1.1rem;
+        }
+        
+        /* Secció Equip - NOVA */
+        .equip-section {
+            text-align: center;
+        }
+        
+        .equip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .equip-member {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        
+        .equip-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-member h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .member-role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .member-desc {
+            color: var(--text);
+            line-height: 1.7;
         }
         
         /* Secció de Preus */
@@ -696,7 +763,7 @@
                 gap: 40px;
             }
             
-            .inclou-grid {
+            .inclou-grid, .equip-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
@@ -727,7 +794,7 @@
                 font-size: 2rem;
             }
             
-            .inclou-grid {
+            .inclou-grid, .equip-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -748,6 +815,11 @@
             
             .preu-import {
                 font-size: 3rem;
+            }
+            
+            .member-image {
+                width: 120px;
+                height: 120px;
             }
         }
         
@@ -773,7 +845,7 @@
                 padding: 25px;
             }
             
-            .inclou-card {
+            .inclou-card, .equip-member {
                 padding: 25px 20px;
             }
             
@@ -783,6 +855,11 @@
             
             .preu-import {
                 font-size: 2.5rem;
+            }
+            
+            .member-image {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -832,6 +909,13 @@
         </div>
     </section>
     
+    <!-- CTA d'accés inicial -->
+    <section class="cta-inicial">
+        <div class="container">
+            <a href="#preus" class="btn btn-accent">Accedir al mentoratge</a>
+        </div>
+    </section>
+    
     <!-- Secció Què és -->
     <section class="que-es">
         <div class="container">
@@ -843,20 +927,20 @@
                 </p>
                 
                 <div class="que-es-highlight">
-                    No és un curs tancat.<br>És un espai d'aprenentatge continu amb acompanyament real.
+                    És un espai d'aprenentatge continu amb acompanyament real.
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Secció Què inclou - MODIFICADA -->
+    <!-- Secció Què inclou - MODIFICADA i equilibrat -->
     <section class="que-inclou">
         <div class="container">
             <h2 class="section-title">Què inclou el mentoratge</h2>
             <p class="section-subtitle">Tot el que necessites per desenvolupar criteri i prendre decisions amb fonament</p>
             
             <div class="inclou-grid">
-                <!-- Bloc 1 -->
+                <!-- Bloc 1 - Reduït -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-graduation-cap"></i> Formació estructurada</h3>
                     <p>Base sòlida per entendre la inversió amb criteri:</p>
@@ -866,59 +950,71 @@
                         <li>Estratègies amb sentit comú</li>
                         <li>Lectura crítica del mercat</li>
                     </ul>
-                    <div class="mentor-note">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Formació creada i impartida per David Forcada</span>
-                    </div>
                 </div>
                 
-                <!-- Bloc 2 -->
+                <!-- Bloc 2 - Reduït -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-video"></i> Directes estratègics</h3>
-                    <p>Directes puntuals amb David quan el context ho requereix:</p>
+                    <p>Directes amb David quan el context ho requereix:</p>
                     <ul>
-                        <li>Quan hi ha moviments importants als mercats</li>
-                        <li>Per posar context i criteri sobre situacions rellevants</li>
-                        <li>Per explicar amb profunditat temes que ho mereixin</li>
+                        <li>Moviments importants als mercats</li>
+                        <li>Context i criteri sobre situacions rellevants</li>
+                        <li>Temes que mereixen profunditat</li>
                         <li>Resolució de dubtes en directe</li>
                     </ul>
-                    <p class="inclou-note">No és un horari fix, sinó trobades quan hi ha contingut rellevant.</p>
                 </div>
                 
-                <!-- Bloc 3 -->
+                <!-- Bloc 3 - Reduït -->
                 <div class="inclou-card">
-                    <h3><i class="fas fa-calendar-plus"></i> Contingut nou cada mes</h3>
-                    <p>Cada mes incorporem nou contingut en vídeo orientat a situacions reals:</p>
+                    <h3><i class="fas fa-calendar-plus"></i> Contingut nou mensual</h3>
+                    <p>Cada mes incorporem vídeos nous sobre situacions reals:</p>
                     <ul>
-                        <li>Consells pràctics per decisions financeres</li>
-                        <li>Anàlisi de situacions habituals dels membres</li>
+                        <li>Consells per decisions financeres</li>
+                        <li>Anàlisi de situacions habituals</li>
                         <li>Errors comuns i com evitar-los</li>
                         <li>Context de mercat aplicat</li>
                     </ul>
                     
                     <div class="contingut-mensual">
-                        <h4>Exemples de contingut mensual:</h4>
-                        <p>• Consells abans de comprar una vivenda<br>
-                           • Què revisar abans de vendre<br>
-                           • Com analitzar decisions financeres clau<br>
-                           • Errors en moments importants de la vida financera</p>
+                        <h4>Exemples pràctics:</h4>
+                        <p>Consells abans de comprar una vivenda, què revisar abans de vendre, com analitzar decisions financeres clau.</p>
                     </div>
                 </div>
                 
-                <!-- Bloc 4 -->
+                <!-- Bloc 4 - Reduït -->
                 <div class="inclou-card">
-                    <h3><i class="fas fa-comments"></i> Acompanyament i dubtes</h3>
+                    <h3><i class="fas fa-comments"></i> Acompanyament</h3>
                     <p>Suport continu de l'equip del mentoratge:</p>
                     <ul>
-                        <li>Resposta ràpida a dubtes per text</li>
-                        <li>Seguiment personalitzat del teu aprenentatge</li>
-                        <li>Espai per compartir reflexions amb la comunitat</li>
+                        <li>Resposta ràpida a dubtes</li>
+                        <li>Seguiment personalitzat</li>
+                        <li>Espai per compartir reflexions</li>
                         <li>Debats sobre oportunitats reals</li>
                     </ul>
-                    <div class="mentor-note">
-                        <i class="fas fa-users"></i>
-                        <span>Equip format per David Forcada i Robert per al seguiment</span>
-                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secció Equip - NOVA -->
+    <section class="equip-section">
+        <div class="container">
+            <h2 class="section-title">L'equip del mentoratge</h2>
+            <p class="section-subtitle">Un equip dedicat per garantir el teu seguiment i aprenentatge</p>
+            
+            <div class="equip-grid">
+                <div class="equip-member">
+                    <img src="https://www.davidforcada.cat/wp-content/uploads/2025/06/david_forcada_141224_1971-14181510-1236x824-removebg-preview-1-edited.png" alt="David Forcada" class="member-image">
+                    <h3>David Forcada</h3>
+                    <p class="member-role">Mentor principal</p>
+                    <p class="member-desc">Impulsa tot el contingut del mentoratge, dirigeix els directes estratègics i s'encarrega dels dubtes més complexos. La seva experiència aporta profunditat i criteri a tot l'espai.</p>
+                </div>
+                
+                <div class="equip-member">
+                    <img src="https://www.davidforcada.cat/wp-content/uploads/2025/10/octavi1.png" alt="Robert" class="member-image">
+                    <h3>Robert</h3>
+                    <p class="member-role">Seguiment i suport</p>
+                    <p class="member-desc">Gestiona el seguiment diari de l'espai de dubtes, respon ràpidament a les preguntes i assegura la continuïtat en el teu aprenentatge. És el teu punt de contacte diari.</p>
                 </div>
             </div>
         </div>
@@ -1130,7 +1226,7 @@
         <div class="container">
             <h2 class="section-title">Deixa d'improvisar. Comença a prendre decisions amb criteri i acompanyament real.</h2>
             <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Un espai per desenvolupar criteri financer, no un altre curs. Amb formació estructurada, contingut nou cada mes i acompanyament de l'equip.
+                Un espai per desenvolupar criteri financer amb formació estructurada, contingut nou cada mes i acompanyament de l'equip.
             </p>
             <a href="#preus" class="btn">Accedir al mentoratge</a>
         </div>
