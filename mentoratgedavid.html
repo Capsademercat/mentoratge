@@ -20,7 +20,8 @@
             --primary: #06768a;
             --primary-dark: #045266;
             --secondary: #00d4ff;
-            --accent: #ff6b35;
+            --accent: #0056b3; /* CANVIAT: Blau professional que transmet confiança */
+            --accent-dark: #003d82; /* Tono més fosc per a hovers */
             --success: #27ae60;
             --light-bg: #f8fafc;
             --dark-text: #1a202c;
@@ -90,13 +91,13 @@
         }
         
         .btn-accent {
-            background: linear-gradient(135deg, var(--accent) 0%, #e55a2b 100%);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); /* CANVIAT */
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3); /* CANVIAT */
         }
         
         .btn-accent:hover {
-            background: linear-gradient(135deg, #e55a2b 0%, #cc4a20 100%);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(135deg, var(--accent-dark) 0%, #002f6c 100%); /* CANVIAT */
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.4); /* CANVIAT */
         }
         
         /* Secció Hero */
@@ -175,7 +176,7 @@
         }
         
         .problema-item i {
-            color: var(--accent);
+            color: var(--accent); /* CANVIAT */
             font-size: 1.2rem;
             margin-right: 15px;
             margin-top: 5px;
@@ -196,7 +197,7 @@
             background: rgba(6, 118, 138, 0.1);
             padding: 25px;
             border-radius: 12px;
-            border-left: 5px solid var(--accent);
+            border-left: 5px solid var(--accent); /* CANVIAT */
         }
         
         /* CTA d'accés inicial */
@@ -235,10 +236,10 @@
             padding: 25px;
             border-radius: 12px;
             margin-top: 40px;
-            border-left: 5px solid var(--accent);
+            border-left: 5px solid var(--accent); /* CANVIAT */
         }
         
-        /* Secció Què inclou - MODIFICADA i equilibrat */
+        /* Secció Què inclou */
         .que-inclou {
             background-color: var(--light-bg);
         }
@@ -278,7 +279,7 @@
         }
         
         .inclou-card h3 i {
-            color: var(--accent);
+            color: var(--accent); /* CANVIAT */
         }
         
         .inclou-card ul {
@@ -332,11 +333,11 @@
         }
         
         .contingut-mensual {
-            background: linear-gradient(135deg, rgba(6, 118, 138, 0.1) 0%, rgba(255, 107, 53, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(6, 118, 138, 0.1) 0%, rgba(0, 86, 179, 0.05) 100%); /* CANVIAT */
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--accent); /* CANVIAT */
         }
         
         .contingut-mensual h4 {
@@ -345,7 +346,7 @@
             font-size: 1.1rem;
         }
         
-        /* Secció Equip - NOVA */
+        /* Secció Equip */
         .equip-section {
             text-align: center;
         }
@@ -389,7 +390,7 @@
         }
         
         .member-role {
-            color: var(--accent);
+            color: var(--accent); /* CANVIAT */
             font-weight: 600;
             margin-bottom: 20px;
             font-size: 1.1rem;
@@ -727,27 +728,6 @@
             transform: translateY(-3px);
         }
         
-        /* Footer */
-        .footer {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .footer-logo {
-            height: 50px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .footer-text {
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
@@ -933,14 +913,14 @@
         </div>
     </section>
     
-    <!-- Secció Què inclou - MODIFICADA i equilibrat -->
+    <!-- Secció Què inclou -->
     <section class="que-inclou">
         <div class="container">
             <h2 class="section-title">Què inclou el mentoratge</h2>
             <p class="section-subtitle">Tot el que necessites per desenvolupar criteri i prendre decisions amb fonament</p>
             
             <div class="inclou-grid">
-                <!-- Bloc 1 - Reduït -->
+                <!-- Bloc 1 -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-graduation-cap"></i> Formació estructurada</h3>
                     <p>Base sòlida per entendre la inversió amb criteri:</p>
@@ -952,7 +932,7 @@
                     </ul>
                 </div>
                 
-                <!-- Bloc 2 - Reduït -->
+                <!-- Bloc 2 -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-video"></i> Directes estratègics</h3>
                     <p>Directes amb David quan el context ho requereix:</p>
@@ -964,7 +944,7 @@
                     </ul>
                 </div>
                 
-                <!-- Bloc 3 - Reduït -->
+                <!-- Bloc 3 -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-calendar-plus"></i> Contingut nou mensual</h3>
                     <p>Cada mes incorporem vídeos nous sobre situacions reals:</p>
@@ -981,7 +961,7 @@
                     </div>
                 </div>
                 
-                <!-- Bloc 4 - Reduït -->
+                <!-- Bloc 4 -->
                 <div class="inclou-card">
                     <h3><i class="fas fa-comments"></i> Acompanyament</h3>
                     <p>Suport continu de l'equip del mentoratge:</p>
@@ -996,7 +976,7 @@
         </div>
     </section>
     
-    <!-- Secció Equip - NOVA -->
+    <!-- Secció Equip -->
     <section class="equip-section">
         <div class="container">
             <h2 class="section-title">L'equip del mentoratge</h2>
@@ -1228,20 +1208,6 @@
             <a href="#preus" class="btn">Accedir al mentoratge</a>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <img src="https://www.davidforcada.cat/wp-content/uploads/2024/03/DAVID_FORCADA__6_-removebg-preview-300x88.png" alt="David Forcada" class="footer-logo">
-            <p class="footer-text">
-                Mentoratge d'Inversió amb David Forcada<br>
-                Un espai privat per aprendre a invertir amb criteri, estructura i acompanyament real.
-            </p>
-            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">
-                © 2024 David Forcada. Tots els drets reservats.
-            </p>
-        </div>
-    </footer>
 
     <script>
         // Funcionalitat per a les preguntes freqüents
