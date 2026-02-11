@@ -885,7 +885,7 @@
         <span><strong>25% de descompte</strong> per als primers 50 membres</span>
         <span class="spots-counter">
             <i class="fas fa-users"></i> 
-            <span id="spots-left">39</span> de 50 places disponibles
+            <span id="spots-left">42</span> de 50 places disponibles
         </span>
         <span>⏳ La mentoria comença en 30‑45 dies</span>
     </div>
@@ -899,7 +899,7 @@
             <h2 class="header-subtitle">Aprèn a prendre decisions amb criteri financer</h2>
             <p class="header-description">Un espai privat on desenvolupar criteri financer per prendre millors decisions en inversió i en altres àmbits econòmics importants.</p>
             <p style="color: white; margin-bottom: 20px; font-weight: 500;"><strong>✅ Reserva la teva plaça ara i estalvia un 25%.</strong> L'accés complet estarà disponible en 30-45 dies.</p>
-            <a href="#" class="main-cta-button">
+            <a href="#preus" class="main-cta-button">
                 <span>Reserva el teu accés anticipat</span>
                 <i class="fas fa-arrow-right"></i>
             </a>
@@ -962,7 +962,7 @@
         
         <!-- CTA SIMPLE -->
         <section class="cta-simple">
-            <a href="#" class="main-cta-button">Reserva la teva plaça amb 25% descompte</a>
+            <a href="#preus" class="main-cta-button">Reserva la teva plaça amb 25% descompte</a>
         </section>
         
         <!-- SECCIÓ QUÈ INCLOU (sense canvis de fons) -->
@@ -1061,7 +1061,7 @@
         <!-- SECCIÓ PREUS - EARLY ACCESS 25% OFF I PLACES LIMITADES -->
         <section id="preus" class="content-section">
             <h2 class="section-title">Reserva el teu accés anticipat</h2>
-            <p class="section-subtitle">Ara amb <strong>25% de descompte</strong> per als primers 50 membres · <span style="color: var(--color-primary); font-weight: 700;">Queden <span id="spots-left-pricing">13</span> places</span></p>
+            <p class="section-subtitle">Ara amb <strong>25% de descompte</strong> per als primers 50 membres · <span style="color: var(--color-primary); font-weight: 700;">Queden <span id="spots-left-pricing">42</span> places</span></p>
             
             <div class="preus-grid">
                 <!-- PLA MENSUAL - EARLY ACCESS -->
@@ -1104,7 +1104,7 @@
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 1.1rem; background: #fff3cd; padding: 15px; border-radius: 8px;">
                 <i class="fas fa-lock" style="color: var(--color-primary);"></i> 
-                <strong>Places limitades a 50 persones.</strong> Actualment queden <strong id="spots-left-bottom">13</strong> places amb 25% de descompte. 
+                <strong>Places limitades a 50 persones.</strong> Actualment queden <strong id="spots-left-bottom">42</strong> places amb 25% de descompte. 
                 Un cop s'esgotin, el preu tornarà al seu valor normal.
             </p>
         </section>
@@ -1268,9 +1268,9 @@
         <!-- CTA FINAL -->
         <section class="final-cta">
             <h2 class="final-cta-title">No et quedis sense plaça</h2>
-            <p class="final-cta-text">25% de descompte · Només 50 places amb descompte anticipat · <strong style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px;">Queden <span id="spots-left-final">13</span></strong></p>
+            <p class="final-cta-text">25% de descompte · Només 50 places amb descompte anticipat · <strong style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px;">Queden <span id="spots-left-final">42</span></strong></p>
             <p style="color: white; font-size: 1.1rem; margin-bottom: 30px;">Reserva ara i sigues dels primers a desenvolupar criteri financer amb acompanyament real.</p>
-            <a href="#" class="main-cta-button" style="background: white; color: var(--color-primary);">Reserva el teu accés anticipat</a>
+            <a href="#preus" class="main-cta-button" style="background: white; color: var(--color-primary);">Reserva el teu accés anticipat</a>
         </section>
         
     </main>
@@ -1278,6 +1278,36 @@
     <script>
         // Funcionalitat per a les FAQ
         document.addEventListener('DOMContentLoaded', function() {
+            // Inicialització del comptador de places
+            let spotsLeft = 42; // places disponibles inicials
+            const spotsElements = [
+                document.getElementById('spots-left'),
+                document.getElementById('spots-left-pricing'),
+                document.getElementById('spots-left-bottom'),
+                document.getElementById('spots-left-final')
+            ];
+
+            // Funció per actualitzar tots els spans amb el nombre actual
+            function updateSpotsDisplay(count) {
+                spotsElements.forEach(el => {
+                    if (el) el.innerText = count;
+                });
+            }
+
+            // Establim el valor inicial
+            updateSpotsDisplay(spotsLeft);
+
+            // Disminuir 1 cada 10 minuts (600.000 ms) mentre hi hagi places
+            const interval = setInterval(() => {
+                if (spotsLeft > 0) {
+                    spotsLeft--;
+                    updateSpotsDisplay(spotsLeft);
+                } else {
+                    clearInterval(interval); // aturem quan arribi a 0
+                }
+            }, 600000); // 10 minuts
+
+            // Funcionalitat FAQ (expandir/col·lapsar)
             const faqItems = document.querySelectorAll('.faq-item');
             
             faqItems.forEach(item => {
@@ -1335,17 +1365,6 @@
                 section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(section);
             });
-            
-            // --- PER ACTUALITZAR EL NOMBRE DE PLACES MANUALMENT ---
-            // Pots canviar el valor de "13" a qualsevol altre número.
-            // Totes les instàncies (spots-left, spots-left-pricing, spots-left-bottom, spots-left-final)
-            // s'actualitzaran automàticament amb aquest valor.
-            const placesRestants = 13; // <-- CANVIA AQUEST NÚMERO QUAN CALGUI
-            
-            document.getElementById('spots-left').innerText = placesRestants;
-            if (document.getElementById('spots-left-pricing')) document.getElementById('spots-left-pricing').innerText = placesRestants;
-            if (document.getElementById('spots-left-bottom')) document.getElementById('spots-left-bottom').innerText = placesRestants;
-            if (document.getElementById('spots-left-final')) document.getElementById('spots-left-final').innerText = placesRestants;
         });
     </script>
     
@@ -1354,4 +1373,3 @@
     <!-- Incloure font Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </div>
---
